@@ -492,7 +492,7 @@ dialog::backdrop { background: rgba(23,36,30,.55); backdrop-filter: blur(3px); }
 .author-box p { font-size: .98rem; }
 
 /* ---------- publications ---------- */
-.pubs { list-style: none; padding: 0; margin: 0; display: grid; gap: 14px; }
+.pubs { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: minmax(0, 1fr); gap: 14px; }
 .pub { display: grid; gap: 6px; background: var(--paper); border: 1px solid var(--line); border-radius: var(--radius-sm); padding: 18px 20px; }
 .pub .pyear { font: italic 600 1.05rem var(--serif); color: var(--rose); }
 .pub .ptitle { font: 600 1.25rem/1.25 var(--serif); color: var(--ink); margin: 0; }
@@ -505,3 +505,5 @@ dialog::backdrop { background: rgba(23,36,30,.55); backdrop-filter: blur(3px); }
 .li-list svg { width: 20px; height: 20px; color: var(--fern); flex: none; }
 .li-list span { font-weight: 500; line-height: 1.35; }
 .li-list small { display: block; font-weight: 400; color: var(--muted); font-size: .85rem; margin-top: 2px; }
+/* narrow-screen safety: one-column grids must shrink to the screen, not widen to the longest item (see Bankata AI CLAUDE.md rule 12) */
+.pub { min-width: 0; overflow-wrap: anywhere; }
